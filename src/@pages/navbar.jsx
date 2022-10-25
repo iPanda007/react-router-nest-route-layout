@@ -1,21 +1,47 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link,useLocation } from 'react-router-dom';
+
+
+function NavLink({to, className,inactiveClassName,activeClassName,...rest}){
+       let location = useLocation();
+       console.log({location})
+       let isActive = location.pathname  === to;
+       let allClassName = className + (isActive?`${activeClassName}`:`${inactiveClassName}`)
+       return <Link className={allClassName} to={to} {...rest} />
+}
 
 const Navbar = () => {
   return (
-    <nav className='p-5'>
-        <Link className='border-b-2 p-2 mr-1 border-indigo-600 hover:border-b-gray-600'>
+    <nav className='p-5 border-b'>
+
+        <NavLink
+        to="/"
+        activeClassName="text-red-400  border-b-2 border-indigo-600"
+        inactiveClassName='hover:border-b-gray-600 hover:border-b-2'
+        className=' pb-5 p-2 mr-1 '>
                Dashboard    
-        </Link>
-        <Link className='p-2 mr-1 hover:border-b-2 hover:border-b-gray-600'>
+        </NavLink>
+        <NavLink 
+         to="/team"
+        activeClassName="text-red-400 border-b-2 border-indigo-600"
+        inactiveClassName="hover:border-b-2 hover:border-b-gray-600"
+        className='pb-5 p-2 mr-1 '>
                Team
-        </Link>
-        <Link className='p-2 mr-1 hover:border-b-2 hover:border-b-gray-600'>
+        </NavLink>
+       <NavLink 
+        to='/project'
+       activeClassName="text-red-400 border-b-2 border-indigo-600"
+       inactiveClassName="hover:border-b-2 hover:border-b-gray-600"
+        className='pb-5 p-2 mr-1 '>
                Projects    
-        </Link>
-        <Link className='p-2 mr-1 hover:border-b-2 hover:border-b-gray-600'>
+        </NavLink>
+        <NavLink 
+         to="/calender"
+        activeClassName="text-red-400 border-b-2 border-indigo-600"
+        inactiveClassName="hover:border-b-2 hover:border-b-gray-600"
+        className='pb-5 p-2 mr-1 '>
                Calender 
-        </Link>
+        </NavLink>
     </nav>
   )
 }
