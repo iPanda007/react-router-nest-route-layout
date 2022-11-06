@@ -15,7 +15,7 @@ const Navbar = () => {
     <nav className='p-5 border-b'>
 
         <NavLink
-        to="/"
+        to="/dashboard"
         activeClassName="text-red-400  border-b-2 border-indigo-600"
         inactiveClassName='hover:border-b-gray-600 hover:border-b-2'
         className=' pb-5 p-2 mr-1 '>

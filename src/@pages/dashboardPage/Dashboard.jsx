@@ -20,11 +20,11 @@ const dashboard = () => {
             <ActiveLink 
              className="p-2"
              activeClassName = "bg-gray-600 text-gray-900"
-             inactiveClass = "text-gray-400"
-             to="/">OverView</ActiveLink>
+             inactiveClass = "text-gray-700"
+             to="/dashboard/overview">OverView</ActiveLink>
 
             <ActiveLink
-             to="/newuser"
+             to="/dashboard/newuser"
              className='p-2'
             activeClassName="bg-gray-600 text-gray-900"
             inactiveClass="text-gray-700"
@@ -33,7 +33,7 @@ const dashboard = () => {
             <ActiveLink
               activeClassName="bg-gray-600 text-gray-900"
               inactiveClass="text-gray-700"
-            to="/sales" className='p-2'>Sales</ActiveLink>
+            to="/dashboard/sales" className='p-2'>Sales</ActiveLink>
         </nav>
     </div>
   )
