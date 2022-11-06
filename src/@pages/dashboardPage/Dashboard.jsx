@@ -33,7 +33,7 @@ const dashboard = () => {
             <ActiveLink
               activeClassName="bg-gray-600 text-gray-900"
               inactiveClass="text-gray-700"
-            to="/dashboard/sales" className='p-2'>Sales</ActiveLink>
+             to="/dashboard/sales" className='p-2'>Sales</ActiveLink>
         </nav>
     </div>
   )

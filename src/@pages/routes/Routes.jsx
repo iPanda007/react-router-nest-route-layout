@@ -6,7 +6,14 @@ import View from '../View'
 
 const AdminRoutes = () => {
   return  useRoutes([
-      {path:"/dashboard",element:<Dashboard/>},
+      {path:"dashboard",
+      element:<Dashboard/>,
+      children:[
+        {path:"overview",element:<Overview/>},
+        {path:"newuser",element:<NewUser/>},
+        {path:"sales",element:<Sales/>}
+      ]
+      },
       {path:"/team",},
       {path:"/projects"},
       {path:"/calender"}
