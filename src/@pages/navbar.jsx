@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link,useLocation } from 'react-router-dom';
-
+import { Link,useLocation,matchRoutes } from 'react-router-dom';
+import { routesConfig } from './routes/Routes';
 
 function NavLink({to, className,inactiveClassName,activeClassName,...rest}){
        let location = useLocation();
-       console.log({location})
-       let isActive = location.pathname  === to;
+       const routeMatch= matchRoutes(routesConfig,location)
+      
+       let isActive = routeMatch.some((match)=> match.pathname=== to)
        let allClassName = className + (isActive?`${activeClassName}`:`${inactiveClassName}`)
        return <Link className={allClassName} to={to} {...rest} />
 }
@@ -29,7 +30,7 @@ const Navbar = () => {
                Team
         </NavLink>
        <NavLink 
-        to='/project'
+        to='/projects'
        activeClassName="text-red-400 border-b-2 border-indigo-600"
        inactiveClassName="hover:border-b-2 hover:border-b-gray-600"
         className='pb-5 p-2 mr-1 '>
