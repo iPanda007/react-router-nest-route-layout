@@ -1,9 +1,10 @@
 import React from 'react'
-import {Routes,Route,useRoutes} from 'react-router-dom'
+import {Routes,Route,useRoutes,Navigate} from 'react-router-dom'
 import { NewUser, Overview, Sales } from '../../@nestPage'
 import { Dashboard } from '../dashboardPage'
 
  export const routesConfig =   [
+      { path: '', element: <Navigate to="/dashboard" /> },
       {path:"dashboard",
       element:<Dashboard/>,
       children:[

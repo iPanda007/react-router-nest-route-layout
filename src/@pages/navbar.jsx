@@ -5,8 +5,9 @@ import { routesConfig } from './routes/Routes';
 function NavLink({to, className,inactiveClassName,activeClassName,...rest}){
        let location = useLocation();
        const routeMatch= matchRoutes(routesConfig,location)
-      
+        console.log(routeMatch)
        let isActive = routeMatch.some((match)=> match.pathname=== to)
+       
        let allClassName = className + (isActive?`${activeClassName}`:`${inactiveClassName}`)
        return <Link className={allClassName} to={to} {...rest} />
 }
